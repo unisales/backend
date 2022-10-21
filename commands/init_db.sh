@@ -1,0 +1,2 @@
+docker run --rm --network=my-network -v /Users/duanyuepeng/Documents/GitHub/duanyuepeng/uni-sales/backend/sql:/flyway/sql flyway/flyway -url="jdbc:mysql://mysql/uni_sales?user=root&password=${MYSQL_PASSWORD}" -cleanDisabled="false" clean
+docker run --rm --network=my-network -v /Users/duanyuepeng/Documents/GitHub/duanyuepeng/uni-sales/backend/sql:/flyway/sql flyway/flyway -url="jdbc:mysql://mysql/uni_sales?user=root&password=${MYSQL_PASSWORD}" migrate
