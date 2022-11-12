@@ -6,8 +6,20 @@ platform:
   arch: arm64
 
 steps:
-  - name: greeting
-    image: alpine
+  - name: build
+    image: gradle:jdk17
     commands:
-      - echo hello
-      - echo world
+      - gradle build
+      - cp ./build/quarkus-app/quarkus-run.jar ./docker
+  - name: docker
+    image: plugins/docker
+    settings:
+      registry: gitea.local
+      username: duanyuepeng
+      password:
+        from_secret: gitea_password
+      context: docker
+      dockerfile: docker/Dockerfile
+      repo: gitea.local/duanyuepeng/uni-sales-backend
+      auto_tag: true
+        auto_tag_suffix: arm64v8
