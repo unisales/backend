@@ -7,11 +7,20 @@ platform:
 
 steps:
   - name: build
-    image: gradle:jdk17
-    commands:
-      - gradle build
-      - cp ./build/quarkus-app/quarkus-run.jar ./docker
-  - name: docker
+    image: quay.io/testcontainers/dind-drone-plugin
+    environment:
+      CI_WORKSPACE: "/drone/src"
+    settings:
+      cmd: gradle build && cp ./build/quarkus-app/quarkus-run.jar ./docker
+      build_image: gradle:jdk17
+      prefetch_images:
+        - "mysql:8"
+      image_aliases:
+        gitea.local/duanyuepeng/mysql:8: mysql:8
+    volumes:
+      - name: dockersock
+        path: /var/run
+  - name: publish
     image: plugins/docker
     settings:
       registry: gitea.local
@@ -23,3 +32,16 @@ steps:
       repo: gitea.local/duanyuepeng/uni-sales-backend
       auto_tag: true
       auto_tag_suffix: arm64v8
+
+services:
+  - name: docker
+    image: docker:dind
+    privileged: true
+    volumes:
+      - name: dockersock
+        path: /var/run
+
+volumes:
+  - name: dockersock
+    temp: { }
+
