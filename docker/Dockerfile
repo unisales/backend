@@ -1,4 +1,4 @@
-FROM gitea.local/duanyuepeng/eclipse-temurin:17-jre-arm64v8
+FROM gitea.local/devops/jre
 
 COPY quarkus-run.jar /opt
 
