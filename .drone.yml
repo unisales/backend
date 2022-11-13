@@ -19,7 +19,7 @@ steps:
       prefetch_images:
         - "mysql:8"
       image_aliases:
-        gitea.local/duanyuepeng/mysql:8: mysql:8
+        gitea.local/devops/mysql:8: mysql:8
     volumes:
       - name: dockersock
         path: /var/run
