@@ -12,7 +12,7 @@ steps:
       CI_WORKSPACE: "/drone/src"
     settings:
       cmd: ./gradlew build && cp ./build/quarkus-app/quarkus-run.jar ./docker
-      build_image: gitea.local/duanyuepeng/eclipse-temurin:17-jre-arm64v8
+      build_image: gitea.local/duanyuepeng/gradle:jdk17
       prefetch_images:
         - "mysql:8"
       image_aliases:
