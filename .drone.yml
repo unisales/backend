@@ -15,11 +15,11 @@ steps:
         ls /root/.gradle && \
         ./gradlew build && \
         cp ./build/quarkus-app/quarkus-run.jar ./docker
-      build_image: gitea.local/devops/gradle
+      build_image: gradle:jdk17
       prefetch_images:
         - "mysql:8"
-      image_aliases:
-        gitea.local/devops/mysql:8: mysql:8
+    #      image_aliases:
+    #        gitea.local/devops/mysql:8: mysql:8
     volumes:
       - name: dockersock
         path: /var/run
