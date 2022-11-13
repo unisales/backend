@@ -15,7 +15,7 @@ steps:
         ls /root/.gradle && \
         ./gradlew build && \
         cp ./build/quarkus-app/quarkus-run.jar ./docker
-      build_image: gitea.local/devlops/gradle
+      build_image: gitea.local/devops/gradle
       prefetch_images:
         - "mysql:8"
       image_aliases:
