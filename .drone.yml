@@ -7,7 +7,7 @@ platform:
 
 steps:
   - name: build
-    image: quay.io/testcontainers/dind-drone-plugin
+    image: gitea.local/devops/dind-drone-plugin
     environment:
       CI_WORKSPACE: "/drone/src"
     settings:
@@ -20,8 +20,6 @@ steps:
     volumes:
       - name: dockersock
         path: /var/run
-      - name: gradle-cache
-        path: /root/.gradle
   - name: publish
     image: plugins/docker
     settings:
@@ -46,7 +44,4 @@ services:
 volumes:
   - name: dockersock
     temp: { }
-  - name: gradle-cache
-    host:
-      path: /root/.gradle
 
