@@ -11,7 +11,7 @@ steps:
     environment:
       CI_WORKSPACE: "/drone/src"
     settings:
-      cmd: ls && ls /root/.gradle && ./gradlew build && cp ./build/quarkus-app/quarkus-run.jar ./docker
+      cmd: ./gradlew --info build && cp ./build/quarkus-app/quarkus-run.jar ./docker
       build_image: gitea.local/devops/jdk
       prefetch_images:
         - "mysql:8"
