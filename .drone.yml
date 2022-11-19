@@ -12,7 +12,7 @@ steps:
       CI_WORKSPACE: "/drone/src"
     settings:
       cmd: >-
-        ls /etc/ssl/certs && \
+        ls /root/.gradle && \
         ./gradlew build && \
         cp ./build/quarkus-app/quarkus-run.jar ./docker
       build_image: gitea.local/devops/jdk
