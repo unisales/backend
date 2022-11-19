@@ -29,7 +29,7 @@ steps:
         from_secret: gitea_password
       context: docker
       dockerfile: docker/Dockerfile
-      repo: gitea.local/duanyuepeng/uni-sales-backend
+      repo: gitea.local/uni-sales/backend
       auto_tag: true
       auto_tag_suffix: arm64v8
 
