@@ -14,7 +14,7 @@ steps:
       cmd: ./gradlew --info build && cp ./build/quarkus-app/quarkus-run.jar ./docker
       build_image: gitea.local/devops/jdk
       image_aliases:
-        gitea.local/devops/mysql:8: mysql:8
+        gitea.local/devops/mysql: mysql:8
     volumes:
       - name: dockersock
         path: /var/run
