@@ -21,10 +21,9 @@ steps:
   - name: publish
     image: plugins/docker
     settings:
-      registry: gitea.local
-      username: duanyuepeng
+      username: uniapps
       password:
-        from_secret: gitea_password
+        from_secret: docker_password
       context: docker
       dockerfile: docker/Dockerfile
       repo: uniapps/unisales-backend
