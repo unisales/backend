@@ -28,6 +28,7 @@ steps:
       context: docker
       dockerfile: docker/Dockerfile
       repo: gitea.local/uni-sales/backend
+      tags: latest
       auto_tag: true
       auto_tag_suffix: arm64v8
 

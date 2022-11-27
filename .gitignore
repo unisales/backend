@@ -187,3 +187,5 @@ nbdist/
 .DS_Store
 build
 .idea
+
+docker/*.jar
