@@ -12,9 +12,9 @@ steps:
       CI_WORKSPACE: "/drone/src"
     settings:
       cmd: ./gradlew --info build && cp ./build/quarkus-app/quarkus-run.jar ./docker
-      build_image: gitea.local/devops/jdk
-      image_aliases:
-        gitea.local/devops/mysql: mysql:8
+      build_image: uniapps/jdk
+      prefetch_images:
+        - "mysql:8"
     volumes:
       - name: dockersock
         path: /var/run
