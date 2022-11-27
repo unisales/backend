@@ -1,4 +1,4 @@
-FROM gitea.local/devops/jre
+FROM uniapps/jre
 
 COPY quarkus-run.jar /opt
 

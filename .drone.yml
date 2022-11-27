@@ -7,7 +7,7 @@ platform:
 
 steps:
   - name: build
-    image: gitea.local/devops/dind-drone-plugin
+    image: uniapps/dind-drone-plugin
     environment:
       CI_WORKSPACE: "/drone/src"
     settings:
@@ -27,7 +27,7 @@ steps:
         from_secret: gitea_password
       context: docker
       dockerfile: docker/Dockerfile
-      repo: gitea.local/uni-sales/backend
+      repo: uniapps/unisales-backend
       tags: latest
       auto_tag: true
       auto_tag_suffix: arm64v8
