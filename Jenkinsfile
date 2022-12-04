@@ -1,10 +1,12 @@
 pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                sh 'Hello World!'
-            }
-        }
+  agent {
+    docker { image 'uniapps/jdk' }
+  }
+  stages {
+    stage('build') {
+      steps {
+        sh './gradlew --info build'
+      }
     }
+  }
 }
